@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class SistemaEscolar {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Declaração de variáveis para armazenar as notas
+        double[] notas = new double[8];
+
+        System.out.println("=== Sistema Escolar - Cálculo de Médias ===");
+        System.out.println("Digite as 8 notas do aluno (uma por vez):");
+
+        // Leitura das 8 notas
+        for (int i = 0; i < 8; i++) {
+            System.out.print("Nota " + (i + 1) + ": ");
+            notas[i] = scanner.nextDouble();
+        }
+
+        // Cálculo das médias bimestrais (cada bimestre tem 2 notas)
+        double mediaB1 = (notas[0] + notas[1]) / 2;
+        double mediaB2 = (notas[2] + notas[3]) / 2;
+        double mediaB3 = (notas[4] + notas[5]) / 2;
+        double mediaB4 = (notas[6] + notas[7]) / 2;
+
+        // Cálculo das médias semestrais
+        double mediaSem1 = (mediaB1 + mediaB2) / 2;
+        double mediaSem2 = (mediaB3 + mediaB4) / 2;
+
+        // Cálculo da média final (média dos 4 bimestres)
+        double mediaFinal = (mediaB1 + mediaB2 + mediaB3 + mediaB4) / 4;
+
+        // Exibição dos resultados
+        System.out.println("\n=== Resultados ===");
+        System.out.printf("1º Bimestre: %.1f%n", mediaB1);
+        System.out.printf("2º Bimestre: %.1f%n", mediaB2);
+        System.out.printf("1º Semestre: %.1f%n", mediaSem1);
+        System.out.println("----------------------");
+        System.out.printf("3º Bimestre: %.1f%n", mediaB3);
+        System.out.printf("4º Bimestre: %.1f%n", mediaB4);
+        System.out.printf("2º Semestre: %.1f%n", mediaSem2);
+        System.out.println("-----------------------");
+        System.out.printf("Média Final: %.1f%n", mediaFinal);
+
+        scanner.close();
+    }
+}
